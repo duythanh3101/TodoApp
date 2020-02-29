@@ -4,15 +4,15 @@ import Header from './components/header';
 import TodoItem from './components/todoItem';
 
 export default function App() {
-  const [todos, settodos] = useState([
+  const [todos, setTodos] = useState([
     { text: 'buy coffee', key: '1'},
     { text: 'create an app', key: '2'},
     { text: 'play on the switch', key: '3'}
   ]);
 
   const pressHandler = (key) => {
-    settodos( (prevTodos) => {
-      prevTodos.filter(x => x.key != key);
+    setTodos( (prevTodos) => {
+      return prevTodos.filter(todo => todo.key != key);
     });
   }  
 
