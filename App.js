@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, FlatList, ListView } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ListView, Alert } from 'react-native';
 import Header from './components/header';
 import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
@@ -18,12 +18,21 @@ export default function App() {
   };
   
   const buttonPressHandler = (text) => {
+    if (text.length > 3)
+    {
       setTodos((prevTodos) => {
         return [
           {text: text, key: Math.random().toString()},
           ...prevTodos
         ];        
       })
+    }else{
+      Alert.alert('OPPS', 'Todos must be over 3 chars', [
+        {text: 'Understood', onPress: () => console.log('alert closed')}
+      ]);
+    }
+    
+      
   };
 
   return (
