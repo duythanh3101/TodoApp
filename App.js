@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
     padding: 40
   },
   list: {
-    marginTop: 100
+    marginTop: 10,
   }
 });
